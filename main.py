@@ -15,5 +15,9 @@ class Application():
                 pass
         return sequence
 
+    @staticmethod
+    def password(sequence, passlength=8):
+        
+
 
     # password
