@@ -16,8 +16,11 @@ class Application():
         return sequence
 
     @staticmethod
-    def password(sequence, passlength=8):
-        
+    def p_password(sequence, passlength=8):
+        password = ''.join(secrets.choice(sequence) for i in range(passlength))
+        return password
+
+Application()
 
 
     # password
