@@ -25,7 +25,11 @@ class Application():
         self.password_bt.grid(row=1, column=0)
 
     def labels(self):
-        pass
+        self.password_entry = Entry(self.root, width=30)
+        self.password_entry.grid(row=0, column=0)
+        
+        self.password_lb = Button(self.root, text='Gen')
+        self.password_lb.grid(row=1, column=0)
 
 
 characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
