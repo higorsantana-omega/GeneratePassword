@@ -15,15 +15,16 @@ class Application():
         self.password_entry = Entry(self.root, width=30)
         self.password_entry.pack()
         
-        self.password_lb = Button(self.root, text='Gen')
+        self.password_lb = Button(self.root, text='Gen', command=self.gen_password())
         self.password_lb.pack()
 
-characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
-password = []
+    def gen_password(self):
+        self.characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
+        self.password = []
 
-for x in range(8):
-    password.append(secrets.choice(characters))
+        for x in range(8):
+            self.password.append(secrets.choice(self.characters))
 
-print(''.join(password))
+        self.password_entry.insert(0, self.password)
 
 Application()
