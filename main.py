@@ -19,12 +19,15 @@ class Application():
         self.password_lb = Button(self.root, text='Gen', command=self.gen_password)
         self.password_lb.grid(row=0, column=2)
 
+        self.password_options = [i+1 for i in range(100)]
+
         self.password_combo = ttk.Combobox(self.root, width=3, font='Arial 12 bold')
         self.password_combo.grid(row=0, column=1)
+        self.password_combo['values'] = self.password_options
 
     def gen_password(self):
         self.characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
-        self.password = ''.join(secrets.choice(self.characters) for i in range(8))
+        self.password = ''.join(secrets.choice(self.characters) for i in range(int(self.password_combo.get())))
         self.password_entry.delete(0, END)
         print(self.password)
         self.password_entry.insert(0, self.password)
